@@ -1,3 +1,27 @@
+# Yii2 实现的一个列表Demo
+
+可以访问 [Demo](http://supplier.uniap.cn/index.php?r=supplier) 进行尝试
+
+# 自己安装测试
+
+-  git clone https://github.com/ieras/Yii-supplier.git
+- cd Yii-supplier
+- composer install
+- 配置数据库信息 config/db.php
+  ```mysql
+   CREATE TABLE `supplier` (
+     `id` int unsigned NOT NULL AUTO_INCREMENT,
+     `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+     `code` char(3) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+     `t_status` enum('ok','hold') CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT 'ok',
+     PRIMARY KEY (`id`),
+     UNIQUE KEY `uk_code` (`code`)
+   ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  ```
+- php yii serve --port=8888
+- 访问 http://localhost:8888
+
+---
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
